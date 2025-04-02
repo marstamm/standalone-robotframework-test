@@ -6,6 +6,6 @@ To run:
 
 ```sh
 pip install -r requirements.txt
-pyoxidizer build
+pyinstaller robot_runner.spec
 ```
 
