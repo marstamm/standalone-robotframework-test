@@ -1,8 +1,10 @@
-from PyInstaller.utils.hooks import collect_submodules
+from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 import os
 
 # Set the path to your virtual environment's site-packages
 venv_site_packages = os.path.join(os.getcwd(), '.venv', 'lib', 'python3.10', 'site-packages')
+
+robot_data_files = collect_data_files('robot')
 
 # Collect submodules from the robot library (and other libraries you need)
 hiddenimports = collect_submodules('robot')
@@ -42,7 +44,7 @@ a = Analysis(
     ['src/robot_runner.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=robot_data_files,
     hiddenimports=hiddenimports,
     hookspath=[],
     hooksconfig={},
